@@ -20,6 +20,7 @@
 		CDD93EC52475CA2100DED9A4 /* SBDUserListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC42475CA2100DED9A4 /* SBDUserListQuery+Rx.swift */; };
 		CDD93EC72475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC62475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift */; };
 		CDD93EC92475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC82475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift */; };
+		CDD93ECB2475D02C00DED9A4 /* SBDChannelDelegate+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93ECA2475D02C00DED9A4 /* SBDChannelDelegate+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CDD93EC42475CA2100DED9A4 /* SBDUserListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDUserListQuery+Rx.swift"; sourceTree = "<group>"; };
 		CDD93EC62475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDApplicationUserListQuery+Rx.swift"; sourceTree = "<group>"; };
 		CDD93EC82475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDBlockedUserListQuery+Rx.swift"; sourceTree = "<group>"; };
+		CDD93ECA2475D02C00DED9A4 /* SBDChannelDelegate+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDChannelDelegate+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		CDD93EB32475C4F600DED9A4 /* Callback */ = {
 			isa = PBXGroup;
 			children = (
+				CDD93ECA2475D02C00DED9A4 /* SBDChannelDelegate+Rx.swift */,
 			);
 			path = Callback;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				CDD93EBF2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift in Sources */,
 				CDD93EC72475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift in Sources */,
 				CDD93EC32475C56C00DED9A4 /* SBDPreviousMessageListQuery+Rx.swift in Sources */,
+				CDD93ECB2475D02C00DED9A4 /* SBDChannelDelegate+Rx.swift in Sources */,
 				CDD93EB92475C51E00DED9A4 /* SBDOpenChannel+Rx.swift in Sources */,
 				CDD93EC92475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift in Sources */,
 				CDD93EC12475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift in Sources */,
