@@ -9,4 +9,5 @@ target 'RxSendBirdSDK' do
   pod 'SendBirdSDK'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxSwiftExt'
 end

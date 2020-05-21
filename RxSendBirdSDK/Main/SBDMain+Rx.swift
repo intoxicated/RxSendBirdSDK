@@ -11,9 +11,6 @@ import SendBirdSDK
 import Foundation
 
 extension Reactive where Base : SBDMain {
-  /**
-   *
-   */
   public static func connect(
     with userId: String,
     accessToken: String? = nil,
@@ -36,10 +33,7 @@ extension Reactive where Base : SBDMain {
       return Disposables.create()
     }
   }
-  
-  /**
-   *
-   */
+
   public static func disconnect() -> Observable<Any?> {
     return Observable.create { observer in
       SBDMain.disconnect {
@@ -50,20 +44,36 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  /**
-   *
-   */
-  public static func updateUserInfo(
-    with nickName: String,
-    profileUrl: String? = nil) -> Observable<Any?> {
+  public static func reconnect() -> Observable<Bool> {
     return Observable.create { observer in
-      SBDMain.updateCurrentUserInfo(
-        withNickname: nickName,
-        profileUrl: profileUrl) { (error) in
+      if (!SBDMain.reconnect()) {
+        observer.onNext(false)
+        observer.onCompleted()
+        return Disposables.create()
+      }
+      
+      let rl = SBDRxConnectionEventListener()
+      let signal = rl.didReconnect()
+        .take(1)
+        .subscribe(onNext: { _ in
+          observer.onNext(true)
+          observer.onCompleted()
+        })
+      
+      return Disposables.create {
+        signal.dispose()
+      }
+    }
+  }
+  
+  // MARK: Emoji
+  public static func getAllEmojis() -> Observable<SBDEmojiContainer?> {
+    return Observable.create { observer in
+      SBDMain.getAllEmojis { (container, error) in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(container)
           observer.onCompleted()
         }
       }
@@ -71,45 +81,28 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  /**
-   *
-   */
-  public static func updateUserInfo(
-    with nickname: String,
-    profileImage: Data?) -> Observable<Any?> {
+  public static func getEmoji(with key: String) -> Observable<SBDEmoji?> {
     return Observable.create { observer in
-      SBDMain.updateCurrentUserInfo(
-        withNickname: nickname,
-        profileImage: profileImage) { (error) in
-          if let error = error {
-            observer.onError(error)
-          } else {
-            observer.onNext(nil)
-            observer.onCompleted()
-          }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  /**
-   *
-   */
-  public static func updateUserInfo(
-    with nickname: String,
-    profilePath: String? = nil) -> Observable<Float> {
-    return Observable.create { observer in
-      SBDMain.updateCurrentUserInfo(
-        withNickname: nickname,
-        profileImageFilePath: profilePath,
-        progressHandler: { (sent, total, expect) in
-        observer.onNext(Float(total)/Float(expect))
-        if total == expect {
-          observer.onCompleted()
-        }
-      }) { (error) in
+      SBDMain.getEmoji(key) { (emoji, error) in
         if let error = error {
           observer.onError(error)
+        } else {
+          observer.onNext(emoji)
+          observer.onCompleted()
+        }
+      }
+      return Disposables.create()
+    }
+  }
+  
+  public static func getEmojiCategory(with id: Int64) -> Observable<SBDEmojiCategory?> {
+    return Observable.create { observer in
+      SBDMain.getEmojiCategory(id) { (category, error) in
+        if let error = error {
+          observer.onError(error)
+        } else {
+          observer.onNext(category)
+          observer.onCompleted()
         }
       }
       return Disposables.create()

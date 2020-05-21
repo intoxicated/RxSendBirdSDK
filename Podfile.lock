@@ -5,11 +5,20 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - RxSwiftExt (5.2.0):
+    - RxSwiftExt/Core (= 5.2.0)
+    - RxSwiftExt/RxCocoa (= 5.2.0)
+  - RxSwiftExt/Core (5.2.0):
+    - RxSwift (~> 5.0)
+  - RxSwiftExt/RxCocoa (5.2.0):
+    - RxCocoa (~> 5.0)
+    - RxSwiftExt/Core
   - SendBirdSDK (3.0.180)
 
 DEPENDENCIES:
   - RxCocoa
   - RxSwift
+  - RxSwiftExt
   - SendBirdSDK
 
 SPEC REPOS:
@@ -17,14 +26,16 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxSwiftExt
     - SendBirdSDK
 
 SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   SendBirdSDK: 66ca9ae03f86eabece79eb86c1e154453ca1532a
 
-PODFILE CHECKSUM: 2df672029eeca69f489e05a50cdac71833df2264
+PODFILE CHECKSUM: 2d38094326c273e9ba5886528624177561502b3f
 
 COCOAPODS: 1.9.1
