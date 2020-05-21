@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4CFD087813F18D56C66C4003 /* Pods_RxSendBirdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813F02A236DE0545A030C87F /* Pods_RxSendBirdSDK.framework */; };
+		CD6A39DD2478ECFD00D1232C /* RxSBDOpenChannelParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A39DC2478ECFD00D1232C /* RxSBDOpenChannelParams.swift */; };
+		CDB9C41824765BA10052F778 /* SBDBaseChannel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9C41724765BA10052F778 /* SBDBaseChannel+Rx.swift */; };
+		CDB9C41A24765E170052F778 /* SBDParamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9C41924765E170052F778 /* SBDParamType.swift */; };
 		CDD93EA72475C3F200DED9A4 /* RxSendBirdSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD93EA52475C3F200DED9A4 /* RxSendBirdSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDD93EB52475C50800DED9A4 /* SBDMain+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EB42475C50800DED9A4 /* SBDMain+Rx.swift */; };
 		CDD93EB72475C51400DED9A4 /* SBDGroupChannel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EB62475C51400DED9A4 /* SBDGroupChannel+Rx.swift */; };
@@ -31,6 +34,9 @@
 		23A7273973644EDDAA1631EB /* Pods-RxSendBirdSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSendBirdSDK.release.xcconfig"; path = "Target Support Files/Pods-RxSendBirdSDK/Pods-RxSendBirdSDK.release.xcconfig"; sourceTree = "<group>"; };
 		813F02A236DE0545A030C87F /* Pods_RxSendBirdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSendBirdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7EED82F58F17763F0D5981 /* Pods-RxSendBirdSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSendBirdSDK.debug.xcconfig"; path = "Target Support Files/Pods-RxSendBirdSDK/Pods-RxSendBirdSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		CD6A39DC2478ECFD00D1232C /* RxSBDOpenChannelParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSBDOpenChannelParams.swift; sourceTree = "<group>"; };
+		CDB9C41724765BA10052F778 /* SBDBaseChannel+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDBaseChannel+Rx.swift"; sourceTree = "<group>"; };
+		CDB9C41924765E170052F778 /* SBDParamType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDParamType.swift; sourceTree = "<group>"; };
 		CDD93EA22475C3F200DED9A4 /* RxSendBirdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSendBirdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD93EA52475C3F200DED9A4 /* RxSendBirdSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxSendBirdSDK.h; sourceTree = "<group>"; };
 		CDD93EA62475C3F200DED9A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +78,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD6A39DE2478ED0900D1232C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD6A39DC2478ECFD00D1232C /* RxSBDOpenChannelParams.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CDD93E982475C3F200DED9A4 = {
 			isa = PBXGroup;
 			children = (
@@ -93,32 +107,26 @@
 		CDD93EA42475C3F200DED9A4 /* RxSendBirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				CD6A39DE2478ED0900D1232C /* Model */,
 				CDD93ED5247637F600DED9A4 /* Contants */,
 				CDD93ED024762CDF00DED9A4 /* Main */,
 				CDD93EB32475C4F600DED9A4 /* Callback */,
 				CDD93EB22475C4EF00DED9A4 /* Query */,
-				CDD93EB02475C4DC00DED9A4 /* OpenChannel */,
-				CDD93EAF2475C4D700DED9A4 /* GroupChannel */,
+				CDD93EB02475C4DC00DED9A4 /* Channel */,
 				CDD93EA52475C3F200DED9A4 /* RxSendBirdSDK.h */,
 				CDD93EA62475C3F200DED9A4 /* Info.plist */,
 			);
 			path = RxSendBirdSDK;
 			sourceTree = "<group>";
 		};
-		CDD93EAF2475C4D700DED9A4 /* GroupChannel */ = {
-			isa = PBXGroup;
-			children = (
-				CDD93EB62475C51400DED9A4 /* SBDGroupChannel+Rx.swift */,
-			);
-			path = GroupChannel;
-			sourceTree = "<group>";
-		};
-		CDD93EB02475C4DC00DED9A4 /* OpenChannel */ = {
+		CDD93EB02475C4DC00DED9A4 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
 				CDD93EB82475C51E00DED9A4 /* SBDOpenChannel+Rx.swift */,
+				CDD93EB62475C51400DED9A4 /* SBDGroupChannel+Rx.swift */,
+				CDB9C41724765BA10052F778 /* SBDBaseChannel+Rx.swift */,
 			);
-			path = OpenChannel;
+			path = Channel;
 			sourceTree = "<group>";
 		};
 		CDD93EB22475C4EF00DED9A4 /* Query */ = {
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD93ED62476380E00DED9A4 /* SBDResult.swift */,
+				CDB9C41924765E170052F778 /* SBDParamType.swift */,
 			);
 			path = Contants;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD93ED424762D5C00DED9A4 /* SBDMainPush+Rx.swift in Sources */,
+				CD6A39DD2478ECFD00D1232C /* RxSBDOpenChannelParams.swift in Sources */,
 				CDD93ED9247639BE00DED9A4 /* SBDRxConnectionEventListener.swift in Sources */,
 				CDD93EBF2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift in Sources */,
 				CDD93EC72475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift in Sources */,
@@ -287,12 +297,14 @@
 				CDD93ECB2475D02C00DED9A4 /* SBDRxChannelEventListener.swift in Sources */,
 				CDD93EB92475C51E00DED9A4 /* SBDOpenChannel+Rx.swift in Sources */,
 				CDD93EC92475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift in Sources */,
+				CDB9C41A24765E170052F778 /* SBDParamType.swift in Sources */,
 				CDD93EC12475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift in Sources */,
 				CDD93EC52475CA2100DED9A4 /* SBDUserListQuery+Rx.swift in Sources */,
 				CDD93EDB2476428D00DED9A4 /* SBDMainChannel+Rx.swift in Sources */,
 				CDD93ED72476380E00DED9A4 /* SBDResult.swift in Sources */,
 				CDD93EBD2475C54100DED9A4 /* SBDGroupChannelListQuery+Rx.swift in Sources */,
 				CDD93EB52475C50800DED9A4 /* SBDMain+Rx.swift in Sources */,
+				CDB9C41824765BA10052F778 /* SBDBaseChannel+Rx.swift in Sources */,
 				CDD93EB72475C51400DED9A4 /* SBDGroupChannel+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

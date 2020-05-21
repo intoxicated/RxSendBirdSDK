@@ -10,10 +10,10 @@ import RxSwift
 import SendBirdSDK
 
 public class SBDRxConnectionEventListener : NSObject {
-  private let rPublisher = PublishSubject<Any?>()
-  private let rsPublisher = PublishSubject<Any?>()
-  private let rfPublisher = PublishSubject<Any?>()
-  private let rcPublisher = PublishSubject<Any?>()
+  private let rPublisher = PublishSubject<Void>()
+  private let rsPublisher = PublishSubject<Void>()
+  private let rfPublisher = PublishSubject<Void>()
+  private let rcPublisher = PublishSubject<Void>()
   
   public override init() {
     super.init()
@@ -24,37 +24,37 @@ public class SBDRxConnectionEventListener : NSObject {
     SBDMain.removeConnectionDelegate(forIdentifier: NSStringFromClass(type(of: self)))
   }
   
-  public func reconnect() -> Observable<Any?> {
+  public func reconnect() -> Observable<Void> {
     return self.rPublisher.asObservable()
   }
   
-  public func didReconnect() -> Observable<Any?> {
+  public func didReconnect() -> Observable<Void> {
     return self.rsPublisher.asObservable()
   }
   
-  public func didFailReconnect() -> Observable<Any?> {
+  public func didFailReconnect() -> Observable<Void> {
     return self.rfPublisher.asObservable()
   }
   
-  public func cancelReconnect() -> Observable<Any?> {
+  public func cancelReconnect() -> Observable<Void> {
     return self.rcPublisher.asObservable()
   }
 }
 
 extension SBDRxConnectionEventListener : SBDConnectionDelegate {
   public func didStartReconnection() {
-    self.rfPublisher.onNext(nil)
+    self.rfPublisher.onNext(())
   }
   
   public func didSucceedReconnection() {
-    self.rsPublisher.onNext(nil)
+    self.rsPublisher.onNext(())
   }
   
   public func didFailReconnection() {
-    self.rfPublisher.onNext(nil)
+    self.rfPublisher.onNext(())
   }
   
   public func didCancelReconnection() {
-    self.rcPublisher.onNext(nil)
+    self.rcPublisher.onNext(())
   }
 }

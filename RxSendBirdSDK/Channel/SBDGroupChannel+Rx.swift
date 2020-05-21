@@ -70,7 +70,8 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  // MARK: actions
+  // MARK: Actions
+  
   public func invite(userIds: [String]) -> Observable<Void> {
     return Observable.create { observer in
       self.base.inviteUserIds(userIds) { error in
@@ -221,7 +222,8 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
 
-  // MARK: configuration
+  // MARK: Configuration
+  
   public func setPushTriggerOption(
     with option: SBDGroupChannelPushTriggerOption) -> Observable<Void> {
     return Observable.create { observer in
@@ -251,107 +253,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  // MARK: Moderation
-  public func banUser(
-    with userId: String,
-    seconds: Int,
-    description: String? = nil) -> Observable<Void> {
-    return Observable.create { observer in
-      self.base.banUser(
-        withUserId: userId,
-        seconds: seconds,
-        description: description
-      ) { error in
-        if let error = error {
-          observer.onError(error)
-        } else {
-          observer.onNext(())
-          observer.onCompleted()
-        }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  public func unban(with userId: String) -> Observable<Void> {
-    return Observable.create { observer in
-      self.base.unbanUser(withUserId: userId) { error in
-        if let error = error {
-          observer.onError(error)
-        } else {
-          observer.onNext(())
-          observer.onCompleted()
-        }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  public func mute(
-    with userId: String,
-    seconds: Int? = nil,
-    description: String? = nil) -> Observable<Void> {
-    return Observable.create { observer in
-      let seconds = seconds ?? -1
-      self.base.muteUser(
-        withUserId: userId,
-        seconds: seconds,
-        description: description
-      ) { error in
-        if let error = error {
-          observer.onError(error)
-        } else {
-          observer.onNext(())
-          observer.onCompleted()
-        }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  public func unmute(with userId: String) -> Observable<Void> {
-    return Observable.create { observer in
-      self.base.unmuteUser(withUserId: userId) { error in
-        if let error = error {
-          observer.onError(error)
-        } else {
-          observer.onNext(())
-          observer.onCompleted()
-        }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  public func freeze() -> Observable<Void> {
-    return Observable.create { observer in
-      self.base.freeze { error in
-        if let error = error {
-          observer.onError(error)
-        } else {
-          observer.onNext(())
-          observer.onCompleted()
-        }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  public func unfreeze() -> Observable<Void> {
-    return Observable.create { observer in
-      self.base.unfreeze { error in
-        if let error = error {
-          observer.onError(error)
-        } else {
-          observer.onNext(())
-          observer.onCompleted()
-        }
-      }
-      return Disposables.create()
-    }
-  }
-  
-  // MARK: misc
+  // MARK: Misc
   
   public func setMyCountPreference(
     preference: SBDCountPreference) -> Observable<Void> {
