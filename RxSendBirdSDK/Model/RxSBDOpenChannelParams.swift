@@ -10,11 +10,12 @@ import Foundation
 
 public struct RxSBDOpenChannelParams {
   public var name: String?
-  //this property will be ingored for update
-  public var channelUrl: String?
   public var coverImage: Data?
   public var coverImageName: String?
   public var data: String?
   public var customType: String?
   public var operatorUserIds: [String]
+  
+  //this property will be ingored for update
+  public var channelUrl: String?
 }

@@ -180,7 +180,7 @@ extension Reactive where Base : SBDBaseChannel {
     
   // MARK: MetaCounter
   public func createMetaCounters(
-    with counters:SBDMetaCounter) -> Observable<SBDMetaCounter> {
+    with counters:SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.createMetaCounters(
         counters.mapValues { NSNumber(integerLiteral: $0) }
@@ -188,7 +188,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.mapValues { $0.intValue } ?? [:])
+          observer.onNext(result?.mapValues { $0.intValue })
           observer.onCompleted()
         }
       }
@@ -197,7 +197,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   public func updateMetaCounters(
-    with counters: SBDMetaCounter) -> Observable<SBDMetaCounter> {
+    with counters: SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.updateMetaCounters(
         counters.mapValues { NSNumber(integerLiteral: $0) }
@@ -205,7 +205,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.mapValues { $0.intValue } ?? [:])
+          observer.onNext(result?.mapValues { $0.intValue })
           observer.onCompleted()
         }
       }
@@ -213,13 +213,13 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getMetaCounters(with keys: [String]) -> Observable<SBDMetaCounter> {
+  public func getMetaCounters(with keys: [String]) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.getMetaCounters(withKeys: keys) { result, error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.mapValues { $0.intValue } ?? [:])
+          observer.onNext(result?.mapValues { $0.intValue })
           observer.onCompleted()
         }
       }
@@ -227,13 +227,13 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getAllMetaCounters() -> Observable<SBDMetaCounter> {
+  public func getAllMetaCounters() -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.getAllMetaCounters { result, error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.mapValues { $0.intValue } ?? [:])
+          observer.onNext(result?.mapValues { $0.intValue })
           observer.onCompleted()
         }
       }
@@ -242,7 +242,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   public func increaseMetaCounters(
-    with counters: SBDMetaCounter) -> Observable<SBDMetaCounter> {
+    with counters: SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.increaseMetaCounters(
         counters.mapValues { NSNumber(integerLiteral: $0) }
@@ -250,7 +250,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.mapValues { $0.intValue } ?? [:])
+          observer.onNext(result?.mapValues { $0.intValue })
           observer.onCompleted()
         }
       }
@@ -259,7 +259,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   public func decreaseMetaCounters(
-    with counters: SBDMetaCounter) -> Observable<SBDMetaCounter> {
+    with counters: SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.decreaseMetaCounters(
         counters.mapValues { NSNumber(integerLiteral: $0) }
@@ -267,7 +267,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.mapValues { $0.intValue } ?? [:])
+          observer.onNext(result?.mapValues { $0.intValue })
           observer.onCompleted()
         }
       }
@@ -467,13 +467,13 @@ extension Reactive where Base : SBDBaseChannel {
   // MARK: Retreive messages
   public func getMessages(
     timestamp: Int64,
-    params: SBDMessageListParams) -> Observable<[SBDBaseMessage]> {
+    params: SBDMessageListParams) -> Observable<[SBDBaseMessage]?> {
     return Observable.create { observer in
       self.base.getMessagesByTimestamp(timestamp, params: params) { messages, error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(messages ?? [])
+          observer.onNext(messages)
           observer.onCompleted()
         }
       }
@@ -483,13 +483,13 @@ extension Reactive where Base : SBDBaseChannel {
 
   public func getMessages(
     messageId: Int64,
-    params: SBDMessageListParams) -> Observable<[SBDBaseMessage]> {
+    params: SBDMessageListParams) -> Observable<[SBDBaseMessage]?> {
     return Observable.create { observer in
       self.base.getMessagesByMessageId(messageId, params: params) { messages, error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(messages ?? [])
+          observer.onNext(messages)
           observer.onCompleted()
         }
       }
@@ -509,8 +509,8 @@ extension Reactive where Base : SBDBaseChannel {
           observer.onError(error)
         } else {
           observer.onNext((
-            updated ?? [],
-            deleted?.map { $0.intValue } ?? [],
+            updated,
+            deleted?.map { $0.intValue },
             hasMore,
             token
           ))
@@ -532,8 +532,8 @@ extension Reactive where Base : SBDBaseChannel {
           observer.onError(error)
         } else {
           observer.onNext((
-            updated ?? [],
-            deleted?.map { $0.intValue } ?? [],
+            updated,
+            deleted?.map { $0.intValue },
             hasMore,
             token
           ))
@@ -828,7 +828,7 @@ extension Reactive where Base : SBDBaseChannel {
   
   public func unfreeze() -> Observable<Void> {
     return Observable.create { observer in
-      if let base = self.base as? SBDOpenChannel {
+      if let _ = self.base as? SBDOpenChannel {
         let error = SBDError(
           domain: "freeze not support for open channel",
           code: SBDErrorCode.invalidParameterValue.rawValue,

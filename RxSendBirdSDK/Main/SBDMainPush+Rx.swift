@@ -273,6 +273,4 @@ extension Reactive where Base : SBDMain {
       return Disposables.create()
     }
   }
-  
-  
 }

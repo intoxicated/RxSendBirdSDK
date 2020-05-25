@@ -15,13 +15,9 @@
 		CDD93EB52475C50800DED9A4 /* SBDMain+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EB42475C50800DED9A4 /* SBDMain+Rx.swift */; };
 		CDD93EB72475C51400DED9A4 /* SBDGroupChannel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EB62475C51400DED9A4 /* SBDGroupChannel+Rx.swift */; };
 		CDD93EB92475C51E00DED9A4 /* SBDOpenChannel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EB82475C51E00DED9A4 /* SBDOpenChannel+Rx.swift */; };
-		CDD93EBD2475C54100DED9A4 /* SBDGroupChannelListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EBC2475C54100DED9A4 /* SBDGroupChannelListQuery+Rx.swift */; };
-		CDD93EBF2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EBE2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift */; };
+		CDD93EBD2475C54100DED9A4 /* SBDChannelListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EBC2475C54100DED9A4 /* SBDChannelListQuery+Rx.swift */; };
 		CDD93EC12475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC02475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift */; };
-		CDD93EC32475C56C00DED9A4 /* SBDPreviousMessageListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC22475C56C00DED9A4 /* SBDPreviousMessageListQuery+Rx.swift */; };
 		CDD93EC52475CA2100DED9A4 /* SBDUserListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC42475CA2100DED9A4 /* SBDUserListQuery+Rx.swift */; };
-		CDD93EC72475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC62475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift */; };
-		CDD93EC92475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93EC82475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift */; };
 		CDD93ECB2475D02C00DED9A4 /* SBDRxChannelEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93ECA2475D02C00DED9A4 /* SBDRxChannelEventListener.swift */; };
 		CDD93ED224762D0400DED9A4 /* SBDMainUser+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93ED124762D0400DED9A4 /* SBDMainUser+Rx.swift */; };
 		CDD93ED424762D5C00DED9A4 /* SBDMainPush+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93ED324762D5C00DED9A4 /* SBDMainPush+Rx.swift */; };
@@ -43,13 +39,9 @@
 		CDD93EB42475C50800DED9A4 /* SBDMain+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDMain+Rx.swift"; sourceTree = "<group>"; };
 		CDD93EB62475C51400DED9A4 /* SBDGroupChannel+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDGroupChannel+Rx.swift"; sourceTree = "<group>"; };
 		CDD93EB82475C51E00DED9A4 /* SBDOpenChannel+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDOpenChannel+Rx.swift"; sourceTree = "<group>"; };
-		CDD93EBC2475C54100DED9A4 /* SBDGroupChannelListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDGroupChannelListQuery+Rx.swift"; sourceTree = "<group>"; };
-		CDD93EBE2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDPublicGroupChannelListQuery+Rx.swift"; sourceTree = "<group>"; };
+		CDD93EBC2475C54100DED9A4 /* SBDChannelListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDChannelListQuery+Rx.swift"; sourceTree = "<group>"; };
 		CDD93EC02475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDMessageListQuery+Rx.swift"; sourceTree = "<group>"; };
-		CDD93EC22475C56C00DED9A4 /* SBDPreviousMessageListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDPreviousMessageListQuery+Rx.swift"; sourceTree = "<group>"; };
 		CDD93EC42475CA2100DED9A4 /* SBDUserListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDUserListQuery+Rx.swift"; sourceTree = "<group>"; };
-		CDD93EC62475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDApplicationUserListQuery+Rx.swift"; sourceTree = "<group>"; };
-		CDD93EC82475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDBlockedUserListQuery+Rx.swift"; sourceTree = "<group>"; };
 		CDD93ECA2475D02C00DED9A4 /* SBDRxChannelEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDRxChannelEventListener.swift; sourceTree = "<group>"; };
 		CDD93ED124762D0400DED9A4 /* SBDMainUser+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDMainUser+Rx.swift"; sourceTree = "<group>"; };
 		CDD93ED324762D5C00DED9A4 /* SBDMainPush+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDMainPush+Rx.swift"; sourceTree = "<group>"; };
@@ -132,13 +124,9 @@
 		CDD93EB22475C4EF00DED9A4 /* Query */ = {
 			isa = PBXGroup;
 			children = (
-				CDD93EBC2475C54100DED9A4 /* SBDGroupChannelListQuery+Rx.swift */,
-				CDD93EBE2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift */,
+				CDD93EBC2475C54100DED9A4 /* SBDChannelListQuery+Rx.swift */,
 				CDD93EC02475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift */,
-				CDD93EC22475C56C00DED9A4 /* SBDPreviousMessageListQuery+Rx.swift */,
 				CDD93EC42475CA2100DED9A4 /* SBDUserListQuery+Rx.swift */,
-				CDD93EC62475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift */,
-				CDD93EC82475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -290,19 +278,15 @@
 				CDD93ED424762D5C00DED9A4 /* SBDMainPush+Rx.swift in Sources */,
 				CD6A39DD2478ECFD00D1232C /* RxSBDOpenChannelParams.swift in Sources */,
 				CDD93ED9247639BE00DED9A4 /* SBDRxConnectionEventListener.swift in Sources */,
-				CDD93EBF2475C54E00DED9A4 /* SBDPublicGroupChannelListQuery+Rx.swift in Sources */,
-				CDD93EC72475CA3100DED9A4 /* SBDApplicationUserListQuery+Rx.swift in Sources */,
 				CDD93ED224762D0400DED9A4 /* SBDMainUser+Rx.swift in Sources */,
-				CDD93EC32475C56C00DED9A4 /* SBDPreviousMessageListQuery+Rx.swift in Sources */,
 				CDD93ECB2475D02C00DED9A4 /* SBDRxChannelEventListener.swift in Sources */,
 				CDD93EB92475C51E00DED9A4 /* SBDOpenChannel+Rx.swift in Sources */,
-				CDD93EC92475CA3F00DED9A4 /* SBDBlockedUserListQuery+Rx.swift in Sources */,
 				CDB9C41A24765E170052F778 /* SBDParamType.swift in Sources */,
 				CDD93EC12475C55A00DED9A4 /* SBDMessageListQuery+Rx.swift in Sources */,
 				CDD93EC52475CA2100DED9A4 /* SBDUserListQuery+Rx.swift in Sources */,
 				CDD93EDB2476428D00DED9A4 /* SBDMainChannel+Rx.swift in Sources */,
 				CDD93ED72476380E00DED9A4 /* SBDResult.swift in Sources */,
-				CDD93EBD2475C54100DED9A4 /* SBDGroupChannelListQuery+Rx.swift in Sources */,
+				CDD93EBD2475C54100DED9A4 /* SBDChannelListQuery+Rx.swift in Sources */,
 				CDD93EB52475C50800DED9A4 /* SBDMain+Rx.swift in Sources */,
 				CDB9C41824765BA10052F778 /* SBDBaseChannel+Rx.swift in Sources */,
 				CDD93EB72475C51400DED9A4 /* SBDGroupChannel+Rx.swift in Sources */,

@@ -7,9 +7,9 @@
 //
 import SendBirdSDK
 
-public typealias SBDPushTokenResult = ([String],SBDPushTokenType, Bool, String?)
+public typealias SBDPushTokenResult = ([String], SBDPushTokenType, Bool, String?)
 public typealias SBDDoNotDisturbResult = (Bool, Int32, Int32, Int32, Int32, String)
 public typealias SBDSnoozeResult = (Bool, Int64, Int64)
-public typealias SBDChannelChangeLogsResult = ([SBDGroupChannel], [String], Bool, String?)
-public typealias SBDMessageChangeLogsResult = ([SBDBaseMessage], [Int], Bool, String?)
+public typealias SBDChannelChangeLogsResult = ([SBDGroupChannel]?, [String]?, Bool, String?)
+public typealias SBDMessageChangeLogsResult = ([SBDBaseMessage]?, [Int]?, Bool, String?)
 public typealias SBDMyMutedInfoResult = (Bool, String, Int64, Int64, Int64)

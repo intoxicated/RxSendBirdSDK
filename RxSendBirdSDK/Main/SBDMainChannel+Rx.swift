@@ -52,7 +52,7 @@ extension Reactive where Base : SBDMain {
 //      return Disposables.create()
 //    }
 //  }
-  
+//  
 //  public static func getMyGroupChannelChangeLogs(timestamp: Int64, params: SBDChannelChangeLogsParams) -> Observable<SBDChannelChangeLogsResult> {
 //    return Observable.create { observer in
 //      SBDMain.getMyGroupChannelChangeLogs(byTimestamp: timestamp, params: params) { channels, deleted, hasMore, token, error in
