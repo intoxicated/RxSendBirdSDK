@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CFD087813F18D56C66C4003 /* Pods_RxSendBirdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813F02A236DE0545A030C87F /* Pods_RxSendBirdSDK.framework */; };
+		7A3A37C168221C58005D1F87 /* Pods_RxSendBirdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D315F9B63ACB00DBA6CAD0FE /* Pods_RxSendBirdSDK.framework */; };
 		CD6A39DD2478ECFD00D1232C /* RxSBDOpenChannelParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6A39DC2478ECFD00D1232C /* RxSBDOpenChannelParams.swift */; };
 		CDB9C41824765BA10052F778 /* SBDBaseChannel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9C41724765BA10052F778 /* SBDBaseChannel+Rx.swift */; };
 		CDB9C41A24765E170052F778 /* SBDParamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9C41924765E170052F778 /* SBDParamType.swift */; };
@@ -27,9 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23A7273973644EDDAA1631EB /* Pods-RxSendBirdSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSendBirdSDK.release.xcconfig"; path = "Target Support Files/Pods-RxSendBirdSDK/Pods-RxSendBirdSDK.release.xcconfig"; sourceTree = "<group>"; };
-		813F02A236DE0545A030C87F /* Pods_RxSendBirdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSendBirdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB7EED82F58F17763F0D5981 /* Pods-RxSendBirdSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSendBirdSDK.debug.xcconfig"; path = "Target Support Files/Pods-RxSendBirdSDK/Pods-RxSendBirdSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		519CA2C6335EA17F20AABCB5 /* Pods-RxSendBirdSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSendBirdSDK.debug.xcconfig"; path = "Target Support Files/Pods-RxSendBirdSDK/Pods-RxSendBirdSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		8CFD6777A449C3A25B19BF1B /* Pods-RxSendBirdSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSendBirdSDK.release.xcconfig"; path = "Target Support Files/Pods-RxSendBirdSDK/Pods-RxSendBirdSDK.release.xcconfig"; sourceTree = "<group>"; };
 		CD6A39DC2478ECFD00D1232C /* RxSBDOpenChannelParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSBDOpenChannelParams.swift; sourceTree = "<group>"; };
 		CDB9C41724765BA10052F778 /* SBDBaseChannel+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDBaseChannel+Rx.swift"; sourceTree = "<group>"; };
 		CDB9C41924765E170052F778 /* SBDParamType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDParamType.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		CDD93ED62476380E00DED9A4 /* SBDResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDResult.swift; sourceTree = "<group>"; };
 		CDD93ED8247639BE00DED9A4 /* SBDRxConnectionEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDRxConnectionEventListener.swift; sourceTree = "<group>"; };
 		CDD93EDA2476428D00DED9A4 /* SBDMainChannel+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBDMainChannel+Rx.swift"; sourceTree = "<group>"; };
+		D315F9B63ACB00DBA6CAD0FE /* Pods_RxSendBirdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSendBirdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +55,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFD087813F18D56C66C4003 /* Pods_RxSendBirdSDK.framework in Frameworks */,
+				7A3A37C168221C58005D1F87 /* Pods_RxSendBirdSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BB7FB1039A2B9ADF7F342813 /* Frameworks */ = {
+		7181498E9680A4C6F6683223 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				813F02A236DE0545A030C87F /* Pods_RxSendBirdSDK.framework */,
+				D315F9B63ACB00DBA6CAD0FE /* Pods_RxSendBirdSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -84,7 +84,7 @@
 				CDD93EA42475C3F200DED9A4 /* RxSendBirdSDK */,
 				CDD93EA32475C3F200DED9A4 /* Products */,
 				F4BADBA1C8D5A32D13137166 /* Pods */,
-				BB7FB1039A2B9ADF7F342813 /* Frameworks */,
+				7181498E9680A4C6F6683223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,8 +163,8 @@
 		F4BADBA1C8D5A32D13137166 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB7EED82F58F17763F0D5981 /* Pods-RxSendBirdSDK.debug.xcconfig */,
-				23A7273973644EDDAA1631EB /* Pods-RxSendBirdSDK.release.xcconfig */,
+				519CA2C6335EA17F20AABCB5 /* Pods-RxSendBirdSDK.debug.xcconfig */,
+				8CFD6777A449C3A25B19BF1B /* Pods-RxSendBirdSDK.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDD93EAA2475C3F200DED9A4 /* Build configuration list for PBXNativeTarget "RxSendBirdSDK" */;
 			buildPhases = (
-				01C94CB601EC8E3272D8E0D0 /* [CP] Check Pods Manifest.lock */,
+				EBD10E25C8A0BC1819E43DD7 /* [CP] Check Pods Manifest.lock */,
 				CDD93E9D2475C3F200DED9A4 /* Headers */,
 				CDD93E9E2475C3F200DED9A4 /* Sources */,
 				CDD93E9F2475C3F200DED9A4 /* Frameworks */,
@@ -246,7 +246,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01C94CB601EC8E3272D8E0D0 /* [CP] Check Pods Manifest.lock */ = {
+		EBD10E25C8A0BC1819E43DD7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -404,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -418,12 +418,12 @@
 		};
 		CDD93EAB2475C3F200DED9A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB7EED82F58F17763F0D5981 /* Pods-RxSendBirdSDK.debug.xcconfig */;
+			baseConfigurationReference = 519CA2C6335EA17F20AABCB5 /* Pods-RxSendBirdSDK.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RM4A5PXTUX;
+				DEVELOPMENT_TEAM = 4S9XZX9348;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -434,9 +434,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.ios.RxSendBirdSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,12 +448,12 @@
 		};
 		CDD93EAC2475C3F200DED9A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23A7273973644EDDAA1631EB /* Pods-RxSendBirdSDK.release.xcconfig */;
+			baseConfigurationReference = 8CFD6777A449C3A25B19BF1B /* Pods-RxSendBirdSDK.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RM4A5PXTUX;
+				DEVELOPMENT_TEAM = 4S9XZX9348;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -461,9 +464,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.ios.RxSendBirdSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
