@@ -11,13 +11,13 @@ import SendBirdSDK
 import Foundation
 
 extension Reactive where Base : SBDMain {
-  public static func markAsReadAll() -> Observable<Any?> {
+  public static func markAsReadAll() -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.markAsReadAll { (error) in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -25,13 +25,13 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  public static func markAsRead(with channelUrls: [String]) -> Observable<Any?> {
+  public static func markAsRead(with channelUrls: [String]) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.markAsRead(withChannelUrls: channelUrls) { (error) in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -39,32 +39,53 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-//  public static func getMyGroupChannelChangeLogs(token: String?, params: SBDChannelChangeLogsParams) -> Observable<SBDChannelChangeLogsResult> {
-//    return Observable.create { observer in
-//      SBDMain.getMyGroupChannelChangeLogs(byToken: token, params: params) { channels, deleted, hasMore, token, error in
-//        if let error = error {
-//          observer.onError(error)
-//        } else {
-//          observer.onNext((channels, deleted, hasMore, token))
-//          observer.onCompleted()
-//        }
-//      }
-//      return Disposables.create()
-//    }
-//  }
-//  
-//  public static func getMyGroupChannelChangeLogs(timestamp: Int64, params: SBDChannelChangeLogsParams) -> Observable<SBDChannelChangeLogsResult> {
-//    return Observable.create { observer in
-//      SBDMain.getMyGroupChannelChangeLogs(byTimestamp: timestamp, params: params) { channels, deleted, hasMore, token, error in
-//        if let error = error {
-//          observer.onError(error)
-//        } else {
-//          observer.onNext((channels, deleted, hasMore, token))
-//          observer.onCompleted()
-//        }
-//      }
-//      return Disposables.create()
-//    }
-//  }
+  public static func markAsDelivered(with payload: [AnyHashable: Any]) -> Observable<Void> {
+    return Observable.create { observer in
+      SBDMain.markAsDelivered(withRemoteNotificationPayload: payload) { error in
+        if let error = error {
+          observer.onError(error)
+        } else {
+          observer.onNext(())
+          observer.onCompleted()
+        }
+      }
+      return Disposables.create()
+    }
+  }
   
+  public static func getMyGroupChannelChangeLogs(
+    token: String?,
+    params: SBDGroupChannelChangeLogsParams) -> Observable<SBDChannelChangeLogsResult> {
+    return Observable.create { observer in
+      SBDMain.getMyGroupChannelChangeLogs(byToken: token, params: params) {
+        channels, deleted, hasMore, token, error in
+        if let error = error {
+            observer.onError(error)
+        } else {
+            observer.onNext((channels, deleted, hasMore, token))
+            observer.onCompleted()
+        }
+      }
+
+      return Disposables.create()
+    }
+  }
+  
+  public static func getMyGroupChannelChangeLogs(
+    timestamp: Int64,
+    params: SBDGroupChannelChangeLogsParams) -> Observable<SBDChannelChangeLogsResult> {
+    return Observable.create { observer in
+      SBDMain.getMyGroupChannelChangeLogs(byTimestamp: timestamp, params: params) {
+        channels, deleted, hasMore, token, error in
+        if let error = error {
+          observer.onError(error)
+        } else {
+          observer.onNext((channels, deleted, hasMore, token))
+          observer.onCompleted()
+        }
+      }
+            
+      return Disposables.create()
+    }
+  }
 }
