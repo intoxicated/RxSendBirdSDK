@@ -324,7 +324,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.compactMapValues { $0 as? String })
+          observer.onNext(result?.compactMapValues { $0 })
           observer.onCompleted()
         }
       }
@@ -338,7 +338,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.compactMapValues { $0 as? String })
+          observer.onNext(result?.compactMapValues { $0 })
           observer.onCompleted()
         }
       }
@@ -352,7 +352,7 @@ extension Reactive where Base : SBDBaseChannel {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(result?.compactMapValues { $0 as? String })
+          observer.onNext(result?.compactMapValues { $0 })
           observer.onCompleted()
         }
       }
