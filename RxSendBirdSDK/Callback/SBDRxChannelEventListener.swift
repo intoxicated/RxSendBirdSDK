@@ -22,6 +22,7 @@ public enum SBDRxChannelEventResult {
   case reaction(SBDBaseChannel, SBDReactionEvent)
   case invite(SBDBaseChannel, [SBDUser]?, SBDUser?)
   case decline(SBDBaseChannel, SBDUser, SBDUser?)
+  case thread(SBDBaseChannel, SBDThreadInfoUpdateEvent)
 }
 
 class SBDRxChannelEventListener: NSObject {
@@ -60,6 +61,8 @@ class SBDRxChannelEventListener: NSObject {
   private let uiPublisher = PublishSubject<SBDRxChannelEventResult>()
   private let uidPublisher = PublishSubject<SBDRxChannelEventResult>()
   
+  private let tuPublisher = PublishSubject<SBDRxChannelEventResult>()
+
   override init() {
     super.init()
     SBDMain.add(self, identifier: NSStringFromClass(type(of: self)))
@@ -190,6 +193,11 @@ class SBDRxChannelEventListener: NSObject {
   public func declineInvitation() -> Observable<SBDRxChannelEventResult> {
     return self.uidPublisher.asObservable()
   }
+
+  // MARK: Threading
+  public func updateThreadInfo() -> Observable<SBDRxChannelEventResult> {
+    return self.tuPublisher.asObservable()
+  }
 }
 
 extension SBDRxChannelEventListener : SBDChannelDelegate {
@@ -313,5 +321,9 @@ extension SBDRxChannelEventListener : SBDChannelDelegate {
   
   func channel(_ sender: SBDGroupChannel, didReceiveInvitation invitees: [SBDUser]?, inviter: SBDUser?) {
     self.uiPublisher.onNext(.invite(sender, invitees, inviter))
+  }
+  
+  func channel(_ channel: SBDBaseChannel, didUpdateThreadInfo threadInfoUpdateEvent: SBDThreadInfoUpdateEvent) {
+    self.tuPublisher.onNext(.thread(channel, threadInfoUpdateEvent))
   }
 }
