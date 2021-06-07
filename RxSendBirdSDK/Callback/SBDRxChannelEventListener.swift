@@ -25,7 +25,7 @@ public enum SBDRxChannelEventResult {
   case thread(SBDBaseChannel, SBDThreadInfoUpdateEvent)
 }
 
-class SBDRxChannelEventListener: NSObject {
+public class SBDRxChannelEventListener: NSObject {
   private let mrPublisher = PublishSubject<SBDRxChannelEventResult>()
   private let muPublisher = PublishSubject<SBDRxChannelEventResult>()
   private let mmPublisher = PublishSubject<SBDRxChannelEventResult>()
@@ -201,129 +201,129 @@ class SBDRxChannelEventListener: NSObject {
 }
 
 extension SBDRxChannelEventListener : SBDChannelDelegate {
-  func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
+  public func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
     self.mrPublisher.onNext(.message(sender, message))
   }
   
-  func channel(_ sender: SBDBaseChannel, didUpdate message: SBDBaseMessage) {
+  public func channel(_ sender: SBDBaseChannel, didUpdate message: SBDBaseMessage) {
     self.muPublisher.onNext(.message(sender, message))
   }
   
-  func channel(_ channel: SBDBaseChannel, didReceiveMention message: SBDBaseMessage) {
+  public func channel(_ channel: SBDBaseChannel, didReceiveMention message: SBDBaseMessage) {
     self.mmPublisher.onNext(.message(channel, message))
   }
   
-  func channel(_ sender: SBDBaseChannel, messageWasDeleted messageId: Int64) {
+  public func channel(_ sender: SBDBaseChannel, messageWasDeleted messageId: Int64) {
     self.mdPublisher.onNext(.messageDeleted(sender, messageId))
   }
 
-  func channelWasChanged(_ sender: SBDBaseChannel) {
+  public func channelWasChanged(_ sender: SBDBaseChannel) {
     self.ccPublisher.onNext(.channel(sender))
   }
   
-  func channelWasFrozen(_ sender: SBDBaseChannel) {
+  public func channelWasFrozen(_ sender: SBDBaseChannel) {
     self.cfPublisher.onNext(.channel(sender))
   }
   
-  func channelWasHidden(_ sender: SBDGroupChannel) {
+  public func channelWasHidden(_ sender: SBDGroupChannel) {
     self.chPublisher.onNext(.channel(sender))
   }
   
-  func channelWasUnfrozen(_ sender: SBDBaseChannel) {
+  public func channelWasUnfrozen(_ sender: SBDBaseChannel) {
     self.cufPublisher.onNext(.channel(sender))
   }
   
-  func channelDidUpdateOperators(_ sender: SBDBaseChannel) {
+  public func channelDidUpdateOperators(_ sender: SBDBaseChannel) {
     self.cuoPublisher.onNext(.channel(sender))
   }
   
-  func channelDidUpdateReadReceipt(_ sender: SBDGroupChannel) {
+  public func channelDidUpdateReadReceipt(_ sender: SBDGroupChannel) {
     self.crrPublisher.onNext(.channel(sender))
   }
   
-  func channelDidUpdateTypingStatus(_ sender: SBDGroupChannel) {
+  public func channelDidUpdateTypingStatus(_ sender: SBDGroupChannel) {
     self.ctPublisher.onNext(.channel(sender))
   }
   
-  func channelDidUpdateDeliveryReceipt(_ sender: SBDGroupChannel) {
+  public func channelDidUpdateDeliveryReceipt(_ sender: SBDGroupChannel) {
     self.cdrPublisher.onNext(.channel(sender))
   }
   
-  func channelWasDeleted(_ channelUrl: String, channelType: SBDChannelType) {
+  public func channelWasDeleted(_ channelUrl: String, channelType: SBDChannelType) {
     self.cdPublisher.onNext(.channelDeleted(channelUrl, channelType))
   }
 
-  func channel(_ sender: SBDGroupChannel, userDidJoin user: SBDUser) {
+  public func channel(_ sender: SBDGroupChannel, userDidJoin user: SBDUser) {
     self.ujPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDGroupChannel, userDidLeave user: SBDUser) {
+  public func channel(_ sender: SBDGroupChannel, userDidLeave user: SBDUser) {
     self.ulPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDOpenChannel, userDidEnter user: SBDUser) {
+  public func channel(_ sender: SBDOpenChannel, userDidEnter user: SBDUser) {
     self.uenPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDOpenChannel, userDidExit user: SBDUser) {
+  public func channel(_ sender: SBDOpenChannel, userDidExit user: SBDUser) {
     self.uexPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDBaseChannel, userWasMuted user: SBDUser) {
+  public func channel(_ sender: SBDBaseChannel, userWasMuted user: SBDUser) {
     self.umPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDBaseChannel, userWasUnmuted user: SBDUser) {
+  public func channel(_ sender: SBDBaseChannel, userWasUnmuted user: SBDUser) {
     self.uumPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDBaseChannel, userWasBanned user: SBDUser) {
+  public func channel(_ sender: SBDBaseChannel, userWasBanned user: SBDUser) {
     self.ubPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDBaseChannel, userWasUnbanned user: SBDUser) {
+  public func channel(_ sender: SBDBaseChannel, userWasUnbanned user: SBDUser) {
     self.uubPublisher.onNext(.user(sender, user))
   }
   
-  func channel(_ sender: SBDBaseChannel, createdMetaData: [String : String]?) {
+  public func channel(_ sender: SBDBaseChannel, createdMetaData: [String : String]?) {
     self.mdcPublisher.onNext(.metaData(sender, createdMetaData))
   }
   
-  func channel(_ sender: SBDBaseChannel, deletedMetaDataKeys: [String]?) {
+  public func channel(_ sender: SBDBaseChannel, deletedMetaDataKeys: [String]?) {
     self.mddPublisher.onNext(.metaKey(sender, deletedMetaDataKeys))
   }
   
-  func channel(_ sender: SBDBaseChannel, deletedMetaCountersKeys: [String]?) {
+  public func channel(_ sender: SBDBaseChannel, deletedMetaCountersKeys: [String]?) {
     self.mcdPublisher.onNext(.metaKey(sender, deletedMetaCountersKeys))
   }
   
-  func channel(_ sender: SBDBaseChannel, updatedMetaData: [String : String]?) {
+  public func channel(_ sender: SBDBaseChannel, updatedMetaData: [String : String]?) {
     self.mduPublisher.onNext(.metaData(sender, updatedMetaData))
   }
   
-  func channel(_ sender: SBDBaseChannel, createdMetaCounters: [String : NSNumber]?) {
+  public func channel(_ sender: SBDBaseChannel, createdMetaCounters: [String : NSNumber]?) {
     let numbers = createdMetaCounters?.mapValues { $0.intValue }
     self.mccPublisher.onNext(.metaCounter(sender, numbers))
   }
   
-  func channel(_ sender: SBDBaseChannel, updatedMetaCounters: [String : NSNumber]?) {
+  public func channel(_ sender: SBDBaseChannel, updatedMetaCounters: [String : NSNumber]?) {
     let numbers = updatedMetaCounters?.mapValues { $0.intValue }
     self.mcuPublisher.onNext(.metaCounter(sender, numbers))
   }
   
-  func channel(_ sender: SBDBaseChannel, updatedReaction reactionEvent: SBDReactionEvent) {
+  public func channel(_ sender: SBDBaseChannel, updatedReaction reactionEvent: SBDReactionEvent) {
     self.ruPublisher.onNext(.reaction(sender, reactionEvent))
   }
   
-  func channel(_ sender: SBDGroupChannel, didDeclineInvitation invitee: SBDUser, inviter: SBDUser?) {
+  public func channel(_ sender: SBDGroupChannel, didDeclineInvitation invitee: SBDUser, inviter: SBDUser?) {
     self.uidPublisher.onNext(.decline(sender, invitee, inviter))
   }
   
-  func channel(_ sender: SBDGroupChannel, didReceiveInvitation invitees: [SBDUser]?, inviter: SBDUser?) {
+  public func channel(_ sender: SBDGroupChannel, didReceiveInvitation invitees: [SBDUser]?, inviter: SBDUser?) {
     self.uiPublisher.onNext(.invite(sender, invitees, inviter))
   }
   
-  func channel(_ channel: SBDBaseChannel, didUpdateThreadInfo threadInfoUpdateEvent: SBDThreadInfoUpdateEvent) {
+  public func channel(_ channel: SBDBaseChannel, didUpdateThreadInfo threadInfoUpdateEvent: SBDThreadInfoUpdateEvent) {
     self.tuPublisher.onNext(.thread(channel, threadInfoUpdateEvent))
   }
 }

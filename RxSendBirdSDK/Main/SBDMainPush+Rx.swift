@@ -120,7 +120,7 @@ extension Reactive where Base : SBDMain {
     startMin: Int32,
     endHour: Int32,
     endMin: Int32,
-    timezone: String) -> Observable<Any?> {
+    timezone: String) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.setDoNotDisturbWithEnable(
         enable,
@@ -133,7 +133,7 @@ extension Reactive where Base : SBDMain {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -158,7 +158,7 @@ extension Reactive where Base : SBDMain {
   public static func setSnoozePeriod(
     with enable: Bool,
     startTimestamp: Int64,
-    endTimestamp: Int64) -> Observable<Any?> {
+    endTimestamp: Int64) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.setSnoozePeriodEnable(
         enable,
@@ -168,7 +168,7 @@ extension Reactive where Base : SBDMain {
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -190,13 +190,13 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  public static func setPushTriggerOption(with option: SBDPushTriggerOption) -> Observable<Any?> {
+  public static func setPushTriggerOption(with option: SBDPushTriggerOption) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.setPushTriggerOption(option) { (error) in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -218,13 +218,13 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  public static func setPushSound(with sound: String) -> Observable<Any?> {
+  public static func setPushSound(with sound: String) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.setPushSound(sound) { (error) in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -246,13 +246,13 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  public static func setPushTemplate(with name: String) -> Observable<Any?> {
+  public static func setPushTemplate(with name: String) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.setPushTemplateWithName(name) { error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }

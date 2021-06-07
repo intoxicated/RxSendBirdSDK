@@ -13,7 +13,7 @@ import Foundation
 extension Reactive where Base : SBDMain {
   public static func updateUserInfo(
     with nickName: String,
-    profileUrl: String? = nil) -> Observable<Any?> {
+    profileUrl: String? = nil) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.updateCurrentUserInfo(
         withNickname: nickName,
@@ -21,7 +21,7 @@ extension Reactive where Base : SBDMain {
           if let error = error {
             observer.onError(error)
           } else {
-            observer.onNext(nil)
+            observer.onNext(())
             observer.onCompleted()
           }
       }
@@ -31,7 +31,7 @@ extension Reactive where Base : SBDMain {
   
   public static func updateUserInfo(
     with nickname: String,
-    profileImage: Data?) -> Observable<Any?> {
+    profileImage: Data?) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.updateCurrentUserInfo(
         withNickname: nickname,
@@ -39,7 +39,7 @@ extension Reactive where Base : SBDMain {
           if let error = error {
             observer.onError(error)
           } else {
-            observer.onNext(nil)
+            observer.onNext(())
             observer.onCompleted()
           }
       }
@@ -82,13 +82,13 @@ extension Reactive where Base : SBDMain {
     }
   }
   
-  public static func unblockUser(with userId: String) -> Observable<Any?> {
+  public static func unblockUser(with userId: String) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.unblockUserId(userId) { error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }
@@ -97,13 +97,13 @@ extension Reactive where Base : SBDMain {
   }
   
   // MARK: Invitation
-  public static func setChannelInvitationPreference(with autoAccept: Bool) -> Observable<Any?> {
+  public static func setChannelInvitationPreference(with autoAccept: Bool) -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.setChannelInvitationPreferenceAutoAccept(autoAccept) { error in
         if let error = error {
           observer.onError(error)
         } else {
-          observer.onNext(nil)
+          observer.onNext(())
           observer.onCompleted()
         }
       }

@@ -10,10 +10,9 @@ import Foundation
 import RxSwift
 import SendBirdSDK
 
-extension Reactive where Base : SBDOpenChannel {
-  
+public extension Reactive where Base : SBDOpenChannel {
   //MARK: CRUD
-  public func refresh() -> Observable<Void> {
+  func refresh() -> Observable<Void> {
     return Observable.create { observer in
       self.base.refresh { error in
         if let error = error {
@@ -27,7 +26,7 @@ extension Reactive where Base : SBDOpenChannel {
     }
   }
   
-  public static func get(with channelId: String) -> Observable<SBDOpenChannel?> {
+  static func get(with channelId: String) -> Observable<SBDOpenChannel?> {
     return Observable.create { observer in
       SBDOpenChannel.getWithUrl(channelId) { channel, error in
         if let error = error {
@@ -41,7 +40,7 @@ extension Reactive where Base : SBDOpenChannel {
     }
   }
   
-  public static func create() -> Observable<SBDOpenChannel?> {
+  static func create() -> Observable<SBDOpenChannel?> {
     return Observable.create { observer in
       SBDOpenChannel.createChannel { channel, error in
         if let error = error {
@@ -55,7 +54,7 @@ extension Reactive where Base : SBDOpenChannel {
     }
   }
   
-  public static func create(
+  static func create(
     with params: RxSBDOpenChannelParams) -> Observable<(SBDOpenChannel?, Float)> {
     guard
       let imageData = params.coverImage,
@@ -92,7 +91,7 @@ extension Reactive where Base : SBDOpenChannel {
     }
   }
   
-  public func update(
+  func update(
     with params: RxSBDOpenChannelParams) -> Observable<(SBDOpenChannel?, Float)> {
     return Observable.create { observer in
       self.base.update(
@@ -117,7 +116,7 @@ extension Reactive where Base : SBDOpenChannel {
     }
   }
   
-  public func delete() -> Observable<Void> {
+  func delete() -> Observable<Void> {
     return Observable.create { observer in
       self.base.delete { error in
         if let error = error {
@@ -133,7 +132,7 @@ extension Reactive where Base : SBDOpenChannel {
   
   // MARK: Actions
   
-  public func enter() -> Observable<Void> {
+  func enter() -> Observable<Void> {
     return Observable.create { observer in
       self.base.enter { error in
         if let error = error {
@@ -147,7 +146,7 @@ extension Reactive where Base : SBDOpenChannel {
     }
   }
   
-  public func exit() -> Observable<Void> {
+  func exit() -> Observable<Void> {
     return Observable.create { observer in
       self.base.exitChannel { error in
         if let error = error {

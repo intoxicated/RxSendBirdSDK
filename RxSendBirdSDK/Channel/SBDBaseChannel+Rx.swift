@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 import SendBirdSDK
 
-extension Reactive where Base : SBDBaseChannel {
-  public func sendUserMessage(
+public extension Reactive where Base : SBDBaseChannel {
+  func sendUserMessage(
     with params: SBDUserMessageParams) -> Observable<SBDUserMessage?> {
     return Observable.create { observer in
       self.base.sendUserMessage(with: params) { message, error in
@@ -26,7 +26,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func resendUserMessage(
+  func resendUserMessage(
     with failedMessage: SBDUserMessage) -> Observable<SBDUserMessage?> {
     return Observable.create { observer in
       self.base.resendUserMessage(with: failedMessage) { message, error in
@@ -41,7 +41,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func updateUserMessage(
+  func updateUserMessage(
     with messageId: Int64, params: SBDUserMessageParams) -> Observable<SBDUserMessage?> {
     return Observable.create { observer in
       self.base.updateUserMessage(
@@ -59,7 +59,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func copyUserMessage(
+  func copyUserMessage(
     with message: SBDUserMessage,
     targetChannel: SBDBaseChannel) -> Observable<SBDUserMessage?> {
     return Observable.create { observer in
@@ -75,7 +75,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func sendFileMessage(
+  func sendFileMessage(
     with params: SBDFileMessageParams) -> Observable<(SBDFileMessage?, Float)> {
     return Observable.create { observer in
       self.base.sendFileMessage(with: params, progressHandler: { sent, total, expect in
@@ -92,7 +92,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func resendFileMessage(
+  func resendFileMessage(
     with failedMessage: SBDFileMessage,
     binaryData: Data?) -> Observable<(SBDFileMessage?, Float)> {
     return Observable.create { observer in
@@ -113,7 +113,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func updateFileMessage(
+  func updateFileMessage(
     with messageId: Int64, params: SBDFileMessageParams) -> Observable<SBDFileMessage?> {
     return Observable.create { observer in
       self.base.updateFileMessage(
@@ -131,7 +131,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func cancelUploadingFileMessage(
+  func cancelUploadingFileMessage(
     with requestId: String) -> Observable<Bool> {
     return Observable.create { observer in
       SBDBaseChannel.cancelUploadingFileMessage(
@@ -148,7 +148,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func copyFileMessage(
+  func copyFileMessage(
     with message: SBDFileMessage,
     targetChannel: SBDBaseChannel) -> Observable<SBDFileMessage?> {
     return Observable.create { observer in
@@ -164,7 +164,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteMessage(with messageId: Int64) -> Observable<Void> {
+  func deleteMessage(with messageId: Int64) -> Observable<Void> {
     return Observable.create { observer in
       self.base.deleteMessage(withMessageId: messageId) { error in
         if let error = error {
@@ -179,7 +179,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
     
   // MARK: MetaCounter
-  public func createMetaCounters(
+  func createMetaCounters(
     with counters:SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.createMetaCounters(
@@ -196,7 +196,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func updateMetaCounters(
+  func updateMetaCounters(
     with counters: SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.updateMetaCounters(
@@ -213,7 +213,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getMetaCounters(with keys: [String]) -> Observable<SBDMetaCounter?> {
+  func getMetaCounters(with keys: [String]) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.getMetaCounters(withKeys: keys) { result, error in
         if let error = error {
@@ -227,7 +227,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getAllMetaCounters() -> Observable<SBDMetaCounter?> {
+  func getAllMetaCounters() -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.getAllMetaCounters { result, error in
         if let error = error {
@@ -241,7 +241,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func increaseMetaCounters(
+  func increaseMetaCounters(
     with counters: SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.increaseMetaCounters(
@@ -258,7 +258,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func decreaseMetaCounters(
+  func decreaseMetaCounters(
     with counters: SBDMetaCounter) -> Observable<SBDMetaCounter?> {
     return Observable.create { observer in
       self.base.decreaseMetaCounters(
@@ -275,7 +275,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteMetaCounters(with key: String) -> Observable<Void> {
+  func deleteMetaCounters(with key: String) -> Observable<Void> {
     return Observable.create { observer in
       self.base.deleteMetaCounters(withKey: key) { error in
         if let error = error {
@@ -289,7 +289,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteAllMetaCounters() -> Observable<Void> {
+  func deleteAllMetaCounters() -> Observable<Void> {
     return Observable.create { observer in
       self.base.deleteAllMetaCounters { error in
         if let error = error {
@@ -304,7 +304,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   // MARK: MetaData
-  public func createMetaData(with data:SBDMetaData) -> Observable<SBDMetaData?> {
+  func createMetaData(with data:SBDMetaData) -> Observable<SBDMetaData?> {
     return Observable.create { observer in
       self.base.createMetaData(data) { result, error in
         if let error = error {
@@ -318,7 +318,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func updateMetaData(with data: SBDMetaData) -> Observable<SBDMetaData?> {
+  func updateMetaData(with data: SBDMetaData) -> Observable<SBDMetaData?> {
     return Observable.create { observer in
       self.base.updateMetaData(data) { result, error in
         if let error = error {
@@ -332,7 +332,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getMetaData(with keys: [String]) -> Observable<SBDMetaData?> {
+  func getMetaData(with keys: [String]) -> Observable<SBDMetaData?> {
     return Observable.create { observer in
       self.base.getMetaData(withKeys: keys) { result, error in
         if let error = error {
@@ -346,7 +346,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getAllMetaData() -> Observable<SBDMetaData?> {
+  func getAllMetaData() -> Observable<SBDMetaData?> {
     return Observable.create { observer in
       self.base.getAllMetaData { result, error in
         if let error = error {
@@ -360,7 +360,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteMetaData(with key: String) -> Observable<Void> {
+  func deleteMetaData(with key: String) -> Observable<Void> {
     return Observable.create { observer in
       self.base.deleteMetaData(withKey: key) { error in
         if let error = error {
@@ -374,7 +374,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteAllMetaData() -> Observable<Void> {
+  func deleteAllMetaData() -> Observable<Void> {
     return Observable.create { observer in
       self.base.deleteAllMetaData { error in
         if let error = error {
@@ -389,7 +389,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   // MARK: MetaArray
-  public func createMessageMetaArray(
+  func createMessageMetaArray(
     with message: SBDBaseMessage,
     keys: [String]) -> Observable<SBDBaseMessage?> {
     return Observable.create { observer in
@@ -408,7 +408,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func addMessageMetaArray(
+  func addMessageMetaArray(
     with message: SBDBaseMessage,
     metaArrays: [SBDMessageMetaArray]) -> Observable<SBDBaseMessage?> {
     return Observable.create { observer in
@@ -427,7 +427,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteMessageMetaArray(
+  func deleteMessageMetaArray(
     with message: SBDBaseMessage,
     keys: [String]) -> Observable<SBDBaseMessage?> {
     return Observable.create { observer in
@@ -445,7 +445,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func removeMessageMetaArray(
+  func removeMessageMetaArray(
     with message: SBDBaseMessage,
     metaArrays: [SBDMessageMetaArray]) -> Observable<SBDBaseMessage?> {
     return Observable.create { observer in
@@ -465,7 +465,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
 
   // MARK: Retreive messages
-  public func getMessages(
+  func getMessages(
     timestamp: Int64,
     params: SBDMessageListParams) -> Observable<[SBDBaseMessage]?> {
     return Observable.create { observer in
@@ -481,7 +481,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
 
-  public func getMessages(
+  func getMessages(
     messageId: Int64,
     params: SBDMessageListParams) -> Observable<[SBDBaseMessage]?> {
     return Observable.create { observer in
@@ -498,7 +498,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
 
   
-  public func getMessageChangeLogs(
+  func getMessageChangeLogs(
     token: String?,
     params: SBDMessageChangeLogsParams) -> Observable<SBDMessageChangeLogsResult> {
     return Observable.create { observer in
@@ -521,7 +521,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getMessageChangeLogs(
+  func getMessageChangeLogs(
     timestamp: Int64,
     params: SBDMessageChangeLogsParams) -> Observable<SBDMessageChangeLogsResult> {
     return Observable.create { observer in
@@ -545,7 +545,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   // MARK: Misc
-  public func translate(
+  func translate(
     with userMessage:SBDUserMessage,
     targetLanguages: [String]) -> Observable<SBDUserMessage?> {
     return Observable.create { observer in
@@ -564,7 +564,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func getMyMutedInfo() -> Observable<SBDMyMutedInfoResult> {
+  func getMyMutedInfo() -> Observable<SBDMyMutedInfoResult> {
     return Observable.create { observer in
       self.base.getMyMutedInfo { (muted, description, start, end, duration, error) in
         if let error = error {
@@ -579,7 +579,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   // MARK: Report
-  public func reportUser(
+  func reportUser(
     user: SBDUser,
     category: SBDReportCategory,
     description: String? = nil) -> Observable<Void> {
@@ -600,7 +600,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func reportChannel(
+  func reportChannel(
     with category: SBDReportCategory,
     description: String? = nil) -> Observable<Void> {
     return Observable.create { observer in
@@ -619,7 +619,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func reportMessage(
+  func reportMessage(
     message: SBDBaseMessage,
     category: SBDReportCategory,
     description: String) -> Observable<Void> {
@@ -641,7 +641,7 @@ extension Reactive where Base : SBDBaseChannel {
   }
   
   // MARK: Reaction
-  public func addReaction(
+  func addReaction(
     to message: SBDBaseMessage,
     key: String) -> Observable<SBDReactionEvent?> {
     return Observable.create { observer in
@@ -657,7 +657,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func deleteReaction(
+  func deleteReaction(
     from message: SBDBaseMessage,
     key: String) -> Observable<SBDReactionEvent?> {
     return Observable.create { observer in
@@ -675,7 +675,7 @@ extension Reactive where Base : SBDBaseChannel {
   
   // MARK: Moderation
   
-  public func banUser(
+  func banUser(
     with userId: String,
     seconds: Int,
     description: String? = nil) -> Observable<Void> {
@@ -711,7 +711,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func unban(with userId: String) -> Observable<Void> {
+  func unban(with userId: String) -> Observable<Void> {
     return Observable.create { observer in
       if let base = self.base as? SBDOpenChannel {
         base.unbanUser(withUserId: userId) { error in
@@ -737,7 +737,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func mute(
+  func mute(
     with userId: String,
     seconds: Int? = nil,
     description: String? = nil) -> Observable<Void> {
@@ -776,7 +776,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func unmute(with userId: String) -> Observable<Void> {
+  func unmute(with userId: String) -> Observable<Void> {
     return Observable.create { observer in
       if let base = self.base as? SBDOpenChannel {
         base.unmuteUser(withUserId: userId) { error in
@@ -802,7 +802,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func freeze() -> Observable<Void> {
+  func freeze() -> Observable<Void> {
     return Observable.create { observer in
       if let _ = self.base as? SBDOpenChannel {
         let error = SBDError(
@@ -826,7 +826,7 @@ extension Reactive where Base : SBDBaseChannel {
     }
   }
   
-  public func unfreeze() -> Observable<Void> {
+  func unfreeze() -> Observable<Void> {
     return Observable.create { observer in
       if let _ = self.base as? SBDOpenChannel {
         let error = SBDError(

@@ -34,10 +34,10 @@ extension Reactive where Base : SBDMain {
     }
   }
 
-  public static func disconnect() -> Observable<Any?> {
+  public static func disconnect() -> Observable<Void> {
     return Observable.create { observer in
       SBDMain.disconnect {
-        observer.onNext(nil)
+        observer.onNext(())
         observer.onCompleted()
       }
       return Disposables.create()

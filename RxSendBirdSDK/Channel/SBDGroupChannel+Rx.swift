@@ -10,9 +10,9 @@ import Foundation
 import RxSwift
 import SendBirdSDK
 
-extension Reactive where Base : SBDGroupChannel {
+public extension Reactive where Base : SBDGroupChannel {
   // MARK: CRUD
-  public func refresh() -> Observable<Void> {
+  func refresh() -> Observable<Void> {
     return Observable.create { observer in
       self.base.refresh { error in
         if let error = error {
@@ -26,7 +26,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public static func get(with channelUrl: String) -> Observable<SBDGroupChannel?> {
+  static func get(with channelUrl: String) -> Observable<SBDGroupChannel?> {
     return Observable.create { observer in
       SBDGroupChannel.getWithUrl(channelUrl) { channel, error in
         if let error = error {
@@ -40,7 +40,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public static func create(
+  static func create(
     with params: SBDGroupChannelParams) -> Observable<SBDGroupChannel?> {
     return Observable.create { observer in
       SBDGroupChannel.createChannel(with: params) { channel, error in
@@ -55,7 +55,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func update(
+  func update(
     with params: SBDGroupChannelParams) -> Observable<SBDGroupChannel?> {
     return Observable.create { observer in
       self.base.update(with: params) { channel, error in
@@ -72,7 +72,7 @@ extension Reactive where Base : SBDGroupChannel {
   
   // MARK: Actions
   
-  public func invite(userIds: [String]) -> Observable<Void> {
+  func invite(userIds: [String]) -> Observable<Void> {
     return Observable.create { observer in
       self.base.inviteUserIds(userIds) { error in
         if let error = error {
@@ -86,7 +86,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func join(with accessCode: String? = nil) -> Observable<Void> {
+  func join(with accessCode: String? = nil) -> Observable<Void> {
     return Observable.create { observer in
       if let code = accessCode {
         self.base.join(withAccessCode: code) { error in
@@ -111,7 +111,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func leave() -> Observable<Void> {
+  func leave() -> Observable<Void> {
     return Observable.create { observer in
       self.base.leave { error in
         if let error = error {
@@ -125,7 +125,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func acceptInvitation(with accessCode: String? = nil) -> Observable<Void> {
+  func acceptInvitation(with accessCode: String? = nil) -> Observable<Void> {
     return Observable.create { observer in
       if let code = accessCode {
         self.base.acceptInvitation(withAccessCode: code) { error in
@@ -150,7 +150,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func declineInvitation() -> Observable<Void> {
+  func declineInvitation() -> Observable<Void> {
     return Observable.create { observer in
       self.base.declineInvitation { error in
         if let error = error {
@@ -164,7 +164,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func resetMyHistory() -> Observable<Void> {
+  func resetMyHistory() -> Observable<Void> {
     return Observable.create { observer in
       self.base.resetMyHistory { error in
         if let error = error {
@@ -178,7 +178,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func hide(
+  func hide(
     with hidePreviousMessage: Bool,
     allowAutoUnhide: Bool) -> Observable<Void> {
     return Observable.create { observer in
@@ -194,7 +194,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func unhide() -> Observable<Void> {
+  func unhide() -> Observable<Void> {
     return Observable.create { observer in
       self.base.unhideChannel { error in
         if let error = error {
@@ -208,7 +208,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func delete() -> Observable<Void> {
+  func delete() -> Observable<Void> {
     return Observable.create { observer in
       self.base.delete { error in
         if let error = error {
@@ -224,7 +224,7 @@ extension Reactive where Base : SBDGroupChannel {
 
   // MARK: Configuration
   
-  public func setPushTriggerOption(
+  func setPushTriggerOption(
     with option: SBDGroupChannelPushTriggerOption) -> Observable<Void> {
     return Observable.create { observer in
       self.base.setMyPushTriggerOption(option) { error in
@@ -239,7 +239,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func getPushTriggerOption() -> Observable<SBDGroupChannelPushTriggerOption> {
+  func getPushTriggerOption() -> Observable<SBDGroupChannelPushTriggerOption> {
     return Observable.create { observer in
       self.base.getMyPushTriggerOption { option, error in
         if let error = error {
@@ -255,7 +255,7 @@ extension Reactive where Base : SBDGroupChannel {
   
   // MARK: Misc
   
-  public func setMyCountPreference(
+  func setMyCountPreference(
     preference: SBDCountPreference) -> Observable<Void> {
     return Observable.create { observer in
       self.base.setMyCountPreference(preference) { error in
@@ -270,7 +270,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func registerScheduleUserMessage(
+  func registerScheduleUserMessage(
     with params: SBDScheduledUserMessageParams) -> Observable<SBDScheduledUserMessage?> {
     return Observable.create { observer in
       self.base.registerScheduledUserMessage(with: params) { message, error in
@@ -285,7 +285,7 @@ extension Reactive where Base : SBDGroupChannel {
     }
   }
   
-  public func notifyScreenshotWasTaken() -> Observable<Void> {
+  func notifyScreenshotWasTaken() -> Observable<Void> {
     return Observable.create { observer in
       self.base.notifyScreenshotWasTaken { error in
         if let error = error {
